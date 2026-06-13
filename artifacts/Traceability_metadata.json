@@ -1,0 +1,338 @@
+{
+	"compiler": {
+		"version": "0.8.20+commit.a1b79de6"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "batchId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "productName",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "farmer",
+						"type": "address"
+					}
+				],
+				"name": "BatchCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "batchId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "status",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "handler",
+						"type": "address"
+					}
+				],
+				"name": "TrackStepAdded",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_batchId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_status",
+						"type": "string"
+					},
+					{
+						"internalType": "enum Traceability.Role",
+						"name": "_role",
+						"type": "uint8"
+					}
+				],
+				"name": "addTrackStep",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "batches",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "batchId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "productName",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "farmerAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "harvestTimestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "ipfsHash",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_batchId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_productName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_ipfsHash",
+						"type": "string"
+					}
+				],
+				"name": "createBatch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_batchId",
+						"type": "uint256"
+					}
+				],
+				"name": "getBatch",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "batchId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "productName",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "harvestTimestamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "ipfsHash",
+								"type": "string"
+							}
+						],
+						"internalType": "struct Traceability.Batch",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_batchId",
+						"type": "uint256"
+					}
+				],
+				"name": "getTrackingHistory",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "handlerAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "stepTimestamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "statusDescription",
+								"type": "string"
+							},
+							{
+								"internalType": "enum Traceability.Role",
+								"name": "role",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct Traceability.TrackStep[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum Traceability.Role",
+						"name": "_role",
+						"type": "uint8"
+					}
+				],
+				"name": "registerRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "trackingHistory",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "handlerAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "stepTimestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "statusDescription",
+						"type": "string"
+					},
+					{
+						"internalType": "enum Traceability.Role",
+						"name": "role",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "userRoles",
+				"outputs": [
+					{
+						"internalType": "enum Traceability.Role",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Traceability.sol": "Traceability"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Traceability.sol": {
+			"keccak256": "0x093f284d148e686d0eb9bdfd17fddb0583130e8270dca019572b12b124591df9",
+			"urls": [
+				"bzz-raw://f4c1883bc5b3bb171211d11bbb04fec6c55d3e7c273a6fbd9ceb39dd7b7924b4",
+				"dweb:/ipfs/QmUrEA4Jo1t1RVxeRopTDfSdmVd11pJWaa1gkDR6hVyzth"
+			]
+		}
+	},
+	"version": 1
+}
